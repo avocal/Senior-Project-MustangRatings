@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <ul class='department_list'>
+        {% for d in department_list %}
+            <li><a href="{% url 'teacherListByDept' d.id %}"><button>{{ d.dept_name }} ({{ d.dept_abrv }})</button></a></li>
+        {% empty %}
+            <li>No departments in database.</li>
+        {% endfor %}
+    </ul>
+    <link rel="stylesheet" href="{% static 'css/dept_list.css' %}">
+{% endblock %}

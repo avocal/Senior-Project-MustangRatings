@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <li class="teacher">{{ teacher.last_name }}, {{ teacher.first_name }}</li>
+    <div class="add_review">
+        <!--<button><a href="{% url 'newReviewPost' teacher.id %}"><img src="{% static 'images/add.png' %}">Add Review</a></button>-->
+        <a href="{% url 'newReviewPost' teacher.id %}"><img src="{% static 'images/add.png' %}">Add Review</a>
+    </div>
+    <!--
+    <div class="filter">
+        <button class="filter_button"><a href="#modal"><img src="{% static 'images/filter.png' %}">Filter By</a></button>
+        <div id="modal" class="inside-modal">
+                <div>
+                    <form method="get">
+                        <ul>
+                            <li>Class Name: {{ review_filter.form.classname }}</li>
+                            <li>Class Number: {{ review_filter.form.classNumber }}</li>
+                            <li>Year From: {{ review_filter.form.year_range_start }}</li>
+                            <li>Year To: {{ review_filter.form.year_range_end }}</li>
+                            <button type="submit">Filter</button>
+                        </ul>
+                    </form>
+                </div>
+                <div><li><a href="{% url 'review_list' teacher.id %}">Close and Clear Filter</a></li></div>
+        </div>
+    </div>-->
+    <!--<li class="teacher">{{ teacher.last_name }}, {{ teacher.first_name }}</li>-->
+
+    <li class="avg_rating ">Average Teaching Rating (Higher is Better)</li>
+    <div class="star-ratings-css">
+        <div class="star-ratings-css-top" style="width:{{avg_teaching}}%">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+    </div>
+
+    <li class="avg_rating ">Average Difficulty Rating (Lower is Better)</li>
+    <div class="star-ratings-css">
+        <div class="star-ratings-css-top" style="width:{{avg_difficulty}}%">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="star-ratings-css-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+    </div>
+
+    <li class="num_reviews">
+        {% if review_count %}
+            {{ review_count }} reviews
+        {% endif %}
+    </li>
+
+    {% if not review_list.all %}
+        <li class="empty">Be the first to leave a review!</li>
+    {% else %}
+        <div class="filter">
+            <button class="filter_button"><a href="#modal"><img src="{% static 'images/filter.png' %}">Filter By</a></button>
+            <div id="modal" class="inside-modal">
+                    <div>
+                        <form method="get">
+                            <ul>
+                                <li>Class Name: {{ review_filter.form.classname }}</li>
+                                <li>Class Number: {{ review_filter.form.classNumber }}</li>
+                                <li>Year From: {{ review_filter.form.year_range_start }}</li>
+                                <li>Year To: {{ review_filter.form.year_range_end }}</li>
+                                <button type="submit">Filter</button>
+                            </ul>
+                        </form>
+                    </div>
+                    <div><li><a href="{% url 'review_list' teacher.id %}">Close and Clear Filter</a></li></div>
+            </div>
+        </div>
+        {% for p in review_filter.qs %}
+        <div class="posts">
+            <ul>
+                <li> Class: {{ p.classname }} {{ p.classNumber }}</li>
+                {% if p.quarter_taken is None %}
+                    <li>Quarter Taken: N/A</li>
+                {% else %}
+                    <li>Quarter Taken: {{ p.quarter_taken }}</li>
+                {% endif %}
+                <li> Year: {{ p.year_taken }}</li>
+                <li> Grade Received: {{ p.grade }}</li>
+                <li class="rating"> Teaching Rating: {{ p.teaching_rating }}</li>
+                <li class="rating"> Difficulty Rating: {{ p.difficulty_rating }}</li>
+                <p> {{ p.body }}</p>
+
+                <form id="post-form" action="{% url 'review_list' teacher.id %}" method="post">
+                {% csrf_token %}
+                    <button id="like-btn" class="like" type="submit" name="like_btn" value="{{ p.id }}">
+                        <img src="{% static 'images/thumbs-up.png' %}">
+                    </button>
+                    <li id="output" class="num_likes">{{ p.total_likes }}</li>
+                    <button id="dislike-btn" class="dislike" type="submit" name="dislike_btn" value="{{ p.id }}">
+                        <img src="{% static 'images/thumbs-down.png' %}">
+                    </button>
+                    <li id="num_dislikes" class="num_dislikes">{{ p.total_dislikes }}</li>
+                </form>
+            </ul>
+        </div>
+        {% empty %}
+            <li class="empty">No reviews found</li>
+        {% endfor %}
+    {% endif %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            var scrollpos = localStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function(e) {
+            localStorage.setItem('scrollpos', window.scrollY);
+        };
+    </script>
+
+    <link rel="stylesheet" href="{% static 'css/review_list.css' %}">
+{% endblock content %}

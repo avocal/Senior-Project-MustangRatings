@@ -1,0 +1,54 @@
+.results li {
+    list-style-type: none;
+    font-size: large;
+    padding-top: 10px;
+    padding-left: 175px;
+    padding-bottom: 10px;
+}
+
+.results li a {
+    text-decoration: none;
+    text-align: left;
+}
+
+.results li a button {
+    position: relative;
+    font-size: 20px;
+    text-align: left;
+    width: 1170px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.name {
+    float: left;
+}
+
+.num_reviews {
+    float: right;
+}
+
+.department {
+    position: absolute;
+    top: 67%;
+    font-size: medium;
+    text-align: left;
+    font-weight: bold;
+}
+
+.header_dist {
+    padding-left: 175px;
+    padding-top: 10px;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::after {
+    clear: both;
+}

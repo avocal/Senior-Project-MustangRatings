@@ -1,0 +1,182 @@
+.posts ul {
+    position: relative;
+    left: 13%;
+    border: 1px solid #999;
+    width: 1170px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.posts ul li{
+    font-weight: bold;
+    list-style-type: none;
+    padding-left: 5px;
+}
+
+.posts ul p {
+    padding-right: 15px;
+    padding-left: 5px;
+    padding-bottom: 15px;
+}
+
+.staff {
+    list-style-type: none;
+    font-size: x-large;
+    text-align: center;
+    position: relative;
+    padding: 60px 350px 28px; /* 350px 28px 45px;*/
+}
+
+.num_reviews {
+    list-style-type: none;
+    display: inline;
+    font-size: medium;
+    text-align: center;
+    position: relative;
+    padding-left: 48%;
+}
+
+.add_review {
+    text-align: right;
+    font-size: x-large;
+    padding-bottom: 15px;
+    margin-top: -60px;
+}
+
+.add_review img {
+    max-width: 25px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+.add_review a {
+    text-decoration: none;
+    position: relative;
+    font-size: 23px;
+    text-align: center;
+    padding: 6px 12px;
+    background-color: #E8E8E8;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+}
+
+.add_review a:hover {
+    background-color: darkgrey;
+    color: white;
+}
+
+.like img{
+    max-width: 20px;
+}
+
+.like:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.num_likes {
+    list-style: none;
+    display: inline-block;
+    padding-right: 5px;
+    position: relative;
+    left: -8px;
+}
+
+.dislike img {
+    max-width: 20px;
+}
+
+.dislike:hover {
+    background-color: lightcoral;
+    cursor: pointer;
+}
+
+.num_dislikes {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    left: -8px;
+}
+
+.like {
+    background-color: white;
+    border: 0;
+}
+
+.dislike {
+    background-color: white;
+    border: 0;
+}
+
+.add_review a {
+    text-decoration: none;
+    position: relative;
+    font-size: 23px;
+    text-align: center;
+}
+
+.avg_rating {
+    list-style-type: none;
+    font-size: large;
+    text-align: center;
+    position: relative;
+}
+
+.empty {
+    list-style-type: none;
+    font-size: large;
+    text-align: center;
+    /*padding: 30px 50% 28px;*/
+    /*padding-left: 43%;*/
+}
+
+.star-ratings-css {
+    unicode-bidi: bidi-override;
+    color: #c5c5c5;
+    font-size: x-large;
+    height: 25px;
+    width: 100px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 50px;
+    text-shadow: 0px 1px 0 #a2a2a2;
+}
+
+.star-ratings-css-top {
+    color: #e7711b;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.star-ratings-css-bottom {
+    padding: 0;
+    display: block;
+    z-index: 0;
+}
+
+var(rating, "https://www.pngfind.com/pngs/m/61-610882_gold-star-png-download-gold-star-transparent-png.png");
+
+.star-ratings-sprite {
+    background: url(rating) repeat-x;
+    font-size: 0;
+    height: 21px;
+    line-height: 0;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 110px;
+    margin: 0 auto;
+}
+
+.star-ratings-sprite-rating {
+    background: url(rating) repeat-x;
+    background-position: 0 100%;
+    float: left;
+    height: 21px;
+    display: block;
+}

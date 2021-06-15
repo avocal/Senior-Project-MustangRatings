@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>New Review for {{ teacher }}</h2>
+    <link rel="stylesheet" href="{% static 'css/newReviewPost.css' %}">
+    <form method="POST" class="post-form" autocomplete="off">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="course">
+            {{ form.classname.errors }}
+            <li>Course Name: {{ form.classname }}</li>
+        </div>
+        <div class="course-number">
+            {{ form.classNumber.errors }}
+            <li>Course Number: {{ form.classNumber }}</li>
+        </div>
+        <div class="quarter">
+            {{ form.quarter_taken.errors }}
+            <li>Quarter Taken: {{ form.quarter_taken }}</li>
+        </div>
+        <div class="year">
+            {{ form.year_taken.errors }}
+            <li>Year Taken: {{ form.year_taken }}</li>
+        </div>
+        <div class="grade">
+            {{ form.grade.errors }}
+            <li>Grade Received: {{ form.grade }}</li>
+        </div>
+        <div class="teaching-rating">
+            {{ form.teaching_rating.errors }}
+            <li>Teaching Rating: {{ form.teaching_rating }}</li>
+        </div>
+        <div class=difficulty-rating>
+            {{ form.difficulty_rating.errors }}
+            <li>Difficulty Rating: {{ form.difficulty_rating}}</li>
+        </div>
+        <div class="body">
+            {{ form.body.errors }}
+            <li>Body:</li>
+            <li>{{ form.body }}</li>
+        </div>
+
+
+        <!--{% csrf_token %}
+        {{ form.as_p }}-->
+        <button type="submit">Add Review</button>
+    </form>
+{% endblock %}

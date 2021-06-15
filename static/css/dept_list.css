@@ -1,0 +1,25 @@
+.department_list li{
+    list-style-type: none;
+    font-size: large;
+    padding-top: 10px;
+    padding-left: 175px;
+    padding-bottom: 10px;
+}
+
+.department_list li a {
+    text-decoration: none;
+    text-align: left;
+}
+
+.department_list li a button { 
+    position: relative;
+    font-size: 20px;
+    text-align: left;
+    width: 1170px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-bottom: 25px;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}

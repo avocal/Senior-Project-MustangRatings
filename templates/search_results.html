@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load extras %}
+{% block content %}
+<ul class="results">
+    {% for object in search_results %}
+        {% with object|model_name as name %}
+            {% if name == 'Teacher' %}
+                {% ifchanged name %}<h2 class="header_dist">Professors</h2>{% endifchanged %}
+                <li><a href="{% url 'review_list' object.id %}"><button>
+                    <div class="name">{{ object.last_name }}, {{ object.first_name }}</div>
+                    <div class="num_reviews">{{ object.get_review_count }} reviews</div>
+                    <div class="department">{{ object.dept }}</div>
+                </button></a></li>
+            {% else %}
+                {% ifchanged name %}<h2 class="header_dist">Staffs</h2>{% endifchanged %}
+                <li><a href="{% url 'staffReview_list' object.id %}"><button>
+                    <div class="name">{{ object.last_name }}, {{ object.first_name }}</div>
+                    <div class="num_reviews">{{ object.get_review_count }} reviews</div>
+                    <div class="department">{{ object.title }}</div>
+                </button></a></li>
+            {% endif%}
+        {% endwith %}
+    {% empty %}
+        <li class="empty">No Administrator Found</li>
+    {% endfor %}
+</ul>
+<link rel="stylesheet" href="{% static 'css/search_results.css' %}">
+{% endblock %}

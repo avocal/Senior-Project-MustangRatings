@@ -1,0 +1,130 @@
+header {
+    position: relative;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    padding: 20px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #999;
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+}
+
+header div .logo {
+    position: relative;
+    max-width: 120px;
+    height: auto;
+}
+
+header div h1 a {
+    color: green;
+    font-size: 1.7em;
+    text-decoration: none;
+    display: inline-block;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+}
+
+header ul li {
+    list-style: none;
+}
+
+header ul li a {
+    position: relative;
+    display: inline-block;
+    color: #333;
+    font-weight: 400;
+    margin-left: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+header ul li:hover a{
+    font-weight: bold;
+    transform: translateY(-7px);
+}
+
+.searchbar input[type=text] {
+    position: relative;
+    left: 215px; /*moves searchbar to the right by 500px*/
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid grey;
+    float: left;
+    width: 1010px;
+    background: #f1f1ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+form.searchbar button {
+    position: relative;
+    /*left: 500px;*/ /*moves button to the right by 500px*/
+    left: 215px;
+    float: left;
+    width: 150px;
+    padding: 10px;
+    background: #04AA6D;
+    color: white;
+    font-size: 20px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.searchbar::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.searchbar {
+    display: flex;
+}
+
+#jumpBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #04AA6D; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+}
+
+#jumpBtn:hover {
+    background-color: #555;
+}
+
+/*
+form.searchbar {
+    text-align: center;
+}
+*/
+
+/*
+.links {
+    text-align: center;
+    font-size: x-large;
+    padding-bottom: 30px;
+}
+*/

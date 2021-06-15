@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<ul class='teacherInDept'>
+    {% for teacher in teacher_list %}
+        <li><a href="{% url 'review_list' teacher.id %}"><button>
+            <div class="name">{{ teacher.last_name }}, {{ teacher.first_name }}</div>
+            <div class="num_reviews">{{teacher.get_review_count }} reviews</div>
+            <div class="department">{{ teacher.dept }}</div>
+        </button></a></li>
+        {% empty %}
+            <li class="empty">No Professor Found in Department</li>
+    {% endfor %}
+</ul>
+<link rel="stylesheet" href="{% static 'css/teacherListByDept.css' %}">
+{% endblock %}

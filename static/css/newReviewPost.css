@@ -1,0 +1,86 @@
+h2 {
+    text-align: left;
+    padding-left: 225px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.course li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.course-number li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.quarter li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.year li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.grade li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.teaching-rating li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.difficulty-rating li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.body li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+form button {
+    border-top: solid 1px #999;
+    position: relative;
+    left: 245px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: large;
+    /*background: #2196f3;*/
+    background: #04AA6D;
+    color: white;
+    cursor: pointer;
+}

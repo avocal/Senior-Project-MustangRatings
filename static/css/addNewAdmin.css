@@ -1,0 +1,62 @@
+h2 {
+    text-align: left;
+    padding-left: 225px;
+    padding-top: 20px;
+}
+
+form li {
+    list-style-type: none;
+    padding-left: 225px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+/*
+.error li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 100px;
+    font-size: large;
+}
+*/
+
+.last_name li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.first_name li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+.dept li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 225px;
+    padding-bottom: 20px;
+    font-size: large;
+}
+
+form button {
+    border-top: solid 1px #999;
+    position: relative;
+    left: 245px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: large;
+    /*background: #2196f3;*/
+    background: #04AA6D;
+    color: white;
+    cursor: pointer;
+}

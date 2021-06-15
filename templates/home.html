@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <ul class='teacher_list'>
+        {% for t in teacher_list %}
+            <li><a href="{% url 'review_list' t.id %}"><button>
+                <div class="name">{{ t.last_name }}, {{ t.first_name }}</div>
+                <div class="num_reviews">{{ t.get_review_count }} reviews</div>
+                <div class="department">{{ t.dept }}</div>
+            </button></a></li>
+        {% empty %}
+            <li>No professors in database.</li>
+        {% endfor %}
+
+        {% if page_obj.has_next and not page_obj.has_previous %}
+            <p class="pagination">
+                <a class="next-page-start" href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+            </p>
+        {% elif page_obj.has_next and page_obj.has_previous %}
+            <p class="pagination">
+                <a class="prev-page" href="{{ request.META.HTTP_REFERER }}">&laquo; Previous</a>
+                <a class="next-page" href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+            </p>
+        {% else %}
+            <p class="pagination">
+                <a class="prev-page-end" href="{{ request.META.HTTP_REFERER }}">&laquo; Previous</a>
+            </p>
+        {% endif %}
+    </ul>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock content %}

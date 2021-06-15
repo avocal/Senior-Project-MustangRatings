@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>New Review for {{ staff }}</h2>
+    <link rel="stylesheet" href="{% static 'css/newStaffReviewPost.css' %}">
+    <form method="POST" class="post-form" autocomplete="off">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="exp-rating">
+            {{ form.difficulty_rating.errors }}
+            <li>Experience Rating: {{ form.exp_rating}}</li>
+        </div>
+        <div class="body">
+            {{ form.body.errors }}
+            <li>Body:</li>
+            <li>{{ form.body }}</li>
+        </div>
+
+
+        <!--{% csrf_token %}
+        {{ form.as_p }}-->
+        <button type="submit">Add Review</button>
+    </form>
+{% endblock %}

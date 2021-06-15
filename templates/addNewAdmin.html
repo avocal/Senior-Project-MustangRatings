@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>New Administrator</h2>
+    <link rel="stylesheet" href="{% static 'css/addNewAdmin.css' %}">
+    <form method="POST" class="post-form" autocomplete="off">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <li>Administrator with First Name, Last Name, and Department already exists!</li>
+        {% endif %}
+        <!--{{ form.non_field_errors }}-->
+        <div class="last_name">
+            {{ form.last_name.errors }}
+            <li>First Name: {{ form.first_name }}</li>
+        </div>
+        <div class="first_name">
+            {{ form.first_name.errors }}
+            <li>Last Name: {{ form.last_name }}</li>
+        </div>
+        <div class="dept">
+            {{ form.dept.errors }}
+            <li>Department: {{ form.dept }}</li>
+        </div>
+        <button type="submit">Add to List</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/staff_list.css' %}">
+    <ul class="staff_list">
+        {% for s in staff_list %}
+            <li><a href="{% url 'staffReview_list' s.id %}"><button>
+                <div class="name">{{ s.last_name }}, {{ s.first_name }}</div>
+                <div class="num_reviews">{{ s.get_review_count }} reviews</div>
+                <div class="title">{{ s.title }}</div>
+            </button></a></li>
+        {% empty %}
+            <li>No Staff/Administartor in database.</li>
+        {% endfor %}
+
+        {% if page_obj.has_next and not page_obj.has_previous %}
+            <p class="pagination">
+                <a class="next-page-start" href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+            </p>
+        {% elif page_obj.has_next and page_obj.has_previous %}
+            <p class="pagination">
+                <a class="prev-page" href="{{ request.META.HTTP_REFERER }}">&laquo; Previous</a>
+                <a class="next-page" href="?page={{ page_obj.next_page_number }}">Next &raquo;</a>
+            </p>
+        {% else %}
+            <p class="pagination">
+                <a class="prev-page-end" href="{{ request.META.HTTP_REFERER }}">&laquo; Previous</a>
+            </p>
+        {% endif %}
+    </ul>
+{% endblock content%}
